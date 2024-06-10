@@ -31,7 +31,7 @@ typedef struct {
 AdjNode* createNode(int dest, int weight);
 Graph* createGraph(int numNodes);
 void addEdge(Graph* graph, int src, int dest, int weight);
-void printGraph(Graph* graph);
+void printAdjacencyList(Graph* graph);
 GraphStats graphStatistics(Graph* graph);
 
 #endif

@@ -66,7 +66,7 @@ int main(int argc, const char * argv[]) {
         free(temp_file);
         
         printf("Graph created:\n");
-        printGraph(graph);
+        printAdjacencyList(graph);
     
         GraphStats stats = graphStatistics(graph);
 
