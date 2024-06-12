@@ -29,12 +29,14 @@ int main(int argc, const char * argv[]) {
             break;
         }
 
+        // Choose a .dat or .stp file
         char *file = chooseFile();
         if (file == NULL) {
             fprintf(stderr, ERROR_MSG_SELECT_FILE);
             continue;
         }
         
+        // Process the chosen file
         char *temp_file = process_file(file);
         if (temp_file == NULL) {
             fprintf(stderr, ERROR_MSG_PROCESS_FILE);
@@ -42,6 +44,7 @@ int main(int argc, const char * argv[]) {
             continue;
         }
 
+        // Open the .temp file
         FILE *fp = fopen(temp_file, "r");
         if (fp == NULL) {
             perror("Failed to open the temp file");
@@ -55,8 +58,10 @@ int main(int argc, const char * argv[]) {
         fscanf(fp, "EDGES %d\n", &numEdges);
         fscanf(fp, "EDGE_LIST\n");
 
+        // Create a graph
         Graph* graph = createGraph(numNodes);
 
+        // Add edges to the created graph
         int src, dest, weight;
         while (fscanf(fp, "%d %d %d\n", &src, &dest, &weight) == 3) {
             addEdge(graph, src, dest, weight);
@@ -65,9 +70,11 @@ int main(int argc, const char * argv[]) {
         fclose(fp);
         free(temp_file);
         
+        // Print graph's adjacency list
         printf("Graph created:\n");
         printAdjacencyList(graph);
     
+        // Print graph's stats
         GraphStats stats = graphStatistics(graph);
 
         printf("---> Nodes: %d\n", stats.numNodes);
