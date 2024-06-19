@@ -11,6 +11,8 @@
 #include "utils.h"
 #include "constants.h"
 #include "graph.h"
+#include "bellman-ford.h"
+#include "bellman-ford-improved.h"
 
 int main(int argc, const char * argv[]) {
     
@@ -72,7 +74,7 @@ int main(int argc, const char * argv[]) {
         
         // Print graph's adjacency list
         printf("Graph created:\n");
-        printAdjacencyList(graph);
+        // printAdjacencyList(graph);
     
         // Print graph's stats
         GraphStats stats = graphStatistics(graph);
@@ -80,6 +82,11 @@ int main(int argc, const char * argv[]) {
         printf("---> Nodes: %d\n", stats.numNodes);
         printf("---> Edges: %d\n", stats.numEdges);
         printf("---> Total weight: %d\n", stats.totalWeight);
+        
+        // Run Bellman-Ford algorithm
+        printf("\nRunning Bellman-Ford algorithm from source node 0...\n");
+        // bellmanFord(graph, 0, graph->numNodes - 1);
+        bellmanFordImproved(graph, 0, graph->numNodes - 1);
 
         // Free the graph memory
         for (int i = 0; i < graph->numNodes; i++) {

@@ -10,6 +10,8 @@
 		03648A7E2C0A2A640085EA5F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 03648A7D2C0A2A640085EA5F /* main.c */; };
 		03648A862C0A2A920085EA5F /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = 03648A852C0A2A920085EA5F /* utils.c */; };
 		03648ACE2C0B50160085EA5F /* graph.c in Sources */ = {isa = PBXBuildFile; fileRef = 03648ACD2C0B50160085EA5F /* graph.c */; };
+		03CC8D472C2382B30004C973 /* bellman-ford.c in Sources */ = {isa = PBXBuildFile; fileRef = 03CC8D462C2382B30004C973 /* bellman-ford.c */; };
+		03CC8D4A2C2387810004C973 /* bellman-ford-improved.c in Sources */ = {isa = PBXBuildFile; fileRef = 03CC8D492C2387810004C973 /* bellman-ford-improved.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,6 +94,10 @@
 		03648ACC2C0B50160085EA5F /* graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graph.h; sourceTree = "<group>"; };
 		03648ACD2C0B50160085EA5F /* graph.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = graph.c; sourceTree = "<group>"; };
 		03648AD22C0D39040085EA5F /* alue7080.stp */ = {isa = PBXFileReference; lastKnownFileType = text; path = alue7080.stp; sourceTree = "<group>"; };
+		03CC8D452C2382B30004C973 /* bellman-ford.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bellman-ford.h"; sourceTree = "<group>"; };
+		03CC8D462C2382B30004C973 /* bellman-ford.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "bellman-ford.c"; sourceTree = "<group>"; };
+		03CC8D482C2387810004C973 /* bellman-ford-improved.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bellman-ford-improved.h"; sourceTree = "<group>"; };
+		03CC8D492C2387810004C973 /* bellman-ford-improved.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "bellman-ford-improved.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,7 @@
 				03648ACA2C0A2EB80085EA5F /* constants.h */,
 				03648A7D2C0A2A640085EA5F /* main.c */,
 				03648ACF2C0B50200085EA5F /* graph */,
+				03CC8D442C210BB30004C973 /* algorithms */,
 				03648ACB2C0A32B90085EA5F /* utils */,
 				03648AC92C0A2AE50085EA5F /* data */,
 			);
@@ -258,6 +265,17 @@
 			path = graph;
 			sourceTree = "<group>";
 		};
+		03CC8D442C210BB30004C973 /* algorithms */ = {
+			isa = PBXGroup;
+			children = (
+				03CC8D452C2382B30004C973 /* bellman-ford.h */,
+				03CC8D462C2382B30004C973 /* bellman-ford.c */,
+				03CC8D482C2387810004C973 /* bellman-ford-improved.h */,
+				03CC8D492C2387810004C973 /* bellman-ford-improved.c */,
+			);
+			path = algorithms;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -318,6 +336,8 @@
 				03648ACE2C0B50160085EA5F /* graph.c in Sources */,
 				03648A7E2C0A2A640085EA5F /* main.c in Sources */,
 				03648A862C0A2A920085EA5F /* utils.c in Sources */,
+				03CC8D472C2382B30004C973 /* bellman-ford.c in Sources */,
+				03CC8D4A2C2387810004C973 /* bellman-ford-improved.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
