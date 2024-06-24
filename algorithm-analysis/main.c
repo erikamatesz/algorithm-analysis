@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
+#include <time.h>
 #include "utils.h"
 #include "constants.h"
 #include "graph.h"
@@ -85,8 +86,14 @@ int main(int argc, const char * argv[]) {
         
         // Run Bellman-Ford algorithm
         printf("\nRunning Bellman-Ford algorithm from source node 0...\n");
+        clock_t start_time = clock();
         // bellmanFord(graph, 0, graph->numNodes - 1);
         bellmanFordImproved(graph, 0, graph->numNodes - 1);
+        clock_t end_time = clock();
+        
+        // CPU time
+        double cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
+        printf("Bellman-Ford algorithm executed in %.6f seconds.\n", cpu_time_used);
 
         // Free the graph memory
         for (int i = 0; i < graph->numNodes; i++) {
