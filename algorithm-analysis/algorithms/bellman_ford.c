@@ -1,5 +1,5 @@
 //
-//  bellman-ford.c
+//  bellman_ford.c
 //  algorithm-analysis
 //
 //  Created by Erika Matesz Bueno on 19/06/24.
@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-#include "bellman-ford.h"
+#include "bellman_ford.h"
 
 /**
  * @brief Initializes the distance and predecessor arrays.

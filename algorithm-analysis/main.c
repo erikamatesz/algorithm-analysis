@@ -12,8 +12,10 @@
 #include "utils.h"
 #include "constants.h"
 #include "graph.h"
-#include "bellman-ford.h"
-#include "bellman-ford-improved.h"
+//#include "bellman_ford.h"
+#include "bellman_ford_improved.h"
+#include "dijkstra_v1.h"
+#include "dijkstra_v2.h"
 
 int main(int argc, const char * argv[]) {
     
@@ -73,8 +75,8 @@ int main(int argc, const char * argv[]) {
         fclose(fp);
         free(temp_file);
         
-        // Print graph's adjacency list
-        printf("Graph created:\n");
+        // Print graph's adjacency list - Part 1
+        // printf("Graph created:\n");
         // printAdjacencyList(graph);
     
         // Print graph's stats
@@ -86,14 +88,40 @@ int main(int argc, const char * argv[]) {
         
         // Run Bellman-Ford algorithm
         printf("\nRunning Bellman-Ford algorithm from source node 0...\n");
-        clock_t start_time = clock();
-        // bellmanFord(graph, 0, graph->numNodes - 1);
-        bellmanFordImproved(graph, 0, graph->numNodes - 1);
-        clock_t end_time = clock();
+        clock_t bf_start = clock();
+        bellmanFordImproved(graph, 0, graph->numNodes - 1); // Final implementation
+        clock_t bf_end = clock();
         
-        // CPU time
-        double cpu_time_used = ((double) (end_time - start_time)) / CLOCKS_PER_SEC;
-        printf("Bellman-Ford algorithm executed in %.6f seconds.\n", cpu_time_used);
+        double bf_cpu_time = ((double) (bf_end - bf_start)) / CLOCKS_PER_SEC;
+        printf("Bellman-Ford algorithm executed in %.6f seconds.\n", bf_cpu_time);
+        
+        // Run Dijkstra (v1) algorithm
+        printf("\nRunning Dijkstra (v1) algorithm from source node 0...\n");
+        clock_t d_v1_start = clock();
+        dijkstraV1(graph, 0);
+        clock_t d_v1_end = clock();
+        
+        double d_v1_cpu_time = ((double) (d_v1_end - d_v1_start)) / CLOCKS_PER_SEC;
+        printf("Dijkstra (v1) algorithm executed in %.6f seconds.\n", d_v1_cpu_time);
+        
+        // Run Dijkstra (v2) algorithm
+        printf("\nRunning Dijkstra (v2) algorithm from source node 0...\n");
+        clock_t d_v2_start = clock();
+        dijkstraV2(graph, 0);
+        clock_t d_v2_end = clock();
+        
+        double d_v2_cpu_time = ((double) (d_v2_end - d_v2_start)) / CLOCKS_PER_SEC;
+        printf("Dijkstra (v2) algorithm executed in %.6f seconds.\n", d_v2_cpu_time);
+        
+        // theoretical complexity of each algorithm
+        int bf_complexity = (int)calculateBellmanFordComplexity(graph->numNodes, stats.numEdges);
+        printf("\nTheoretical complexity of Bellman-Ford (improved): O(n x m) --> O(%d)\n", bf_complexity);
+
+        int d_v1_complexity = (int)calculateDijkstraV1Complexity(graph->numNodes);
+        printf("\nTheoretical complexity of Dijkstra (v1): O(n^2) --> O(%d)\n", d_v1_complexity);
+        
+        double d_v2_complexity = calculateDijkstraV2Complexity(graph->numNodes, stats.numEdges);
+        printf("\nTheoretical complexity of Dijkstra (v2): O(m * log n) --> O(%.2f)\n", d_v2_complexity);
 
         // Free the graph memory
         for (int i = 0; i < graph->numNodes; i++) {

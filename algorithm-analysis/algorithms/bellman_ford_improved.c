@@ -1,5 +1,5 @@
 //
-//  bellman-ford-improved.c
+//  bellman_ford_improved.c
 //  algorithm-analysis
 //
 //  Created by Erika Matesz Bueno on 19/06/24.
@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-#include "bellman-ford-improved.h"
+#include "bellman_ford_improved.h"
 
 /**
- * @brief Initializes the distance and predecessor arrays.
+ * @brief Initializes the distance array.
  *
  * @param graph Pointer to the graph
  * @param src The source node
@@ -31,6 +31,7 @@ void improvedInitializeSingleSource(Graph* graph, int src, int* dist) {
  * @param v The destination node of the edge
  * @param weight The weight of the edge
  * @param dist Array to store the shortest distance from the source node
+ * @param newDist Array to temporarily store the updated shortest distances
  */
 void improvedRelax(int u, int v, int weight, int* dist, int* newDist) {
     if (dist[u] != INT_MAX && dist[u] + weight < newDist[v]) {

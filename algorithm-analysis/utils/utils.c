@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h>
+#include <math.h>
 
 #include "constants.h"
 
@@ -239,3 +240,36 @@ char* process_file(const char *input_filename) {
 
     return output_filename;
 }
+
+/**
+ * @brief Calculate the theoretical complexity of Bellman-Ford algorithm.
+ *
+ * @param n Number of vertices in the graph.
+ * @param m Number of edges in the graph.
+ * @return Double representing the theoretical complexity O(n * m).
+ */
+double calculateBellmanFordComplexity(int n, int m) {
+    return n * m;
+}
+
+/**
+ * @brief Calculate the theoretical complexity of Dijkstra algorithm (version 1).
+ *
+ * @param n Number of vertices in the graph.
+ * @return Double representing the theoretical complexity O(n^2).
+ */
+double calculateDijkstraV1Complexity(int n) {
+    return n * n;
+}
+
+/**
+ * @brief Calculate the theoretical complexity of Dijkstra algorithm (version 2).
+ *
+ * @param n Number of vertices in the graph.
+ * @param m Number of edges in the graph.
+ * @return Double representing the theoretical complexity O(m * log(n)).
+ */
+double calculateDijkstraV2Complexity(int n, int m) {
+    return m * log2(n);
+}
+

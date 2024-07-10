@@ -12,5 +12,8 @@
 
 char* chooseFile(void);
 char* process_file(const char *input_filename);
+double calculateBellmanFordComplexity(int n, int m);
+double calculateDijkstraV1Complexity(int n);
+double calculateDijkstraV2Complexity(int n, int m);
 
 #endif /* utils_h */
